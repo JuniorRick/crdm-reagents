@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+	<div class="toolbar">
+		<div class="toolbar-content">
+			<a href="#{request.contextPath}/" class="toolbar-item">Acasa</a> 
+			<a href="#{request.contextPath}/faces/reagents/list.xhtml" class="toolbar-item">Reagenti</a> 
+			<a href="/" class="toolbar-item">Acasa</a>
+
+
+			<p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search" class="is-pulled-right" />
+
+		</div>
+
+	</div>
+
+	<!-- 	<p:breadCrumb>
+		<p:menuitem value="Acasa" url="/" />
+		<p:menuitem value="Reagenti" url="faces/reagents/list.xhtml" />
+		<p:menuitem value="Eliberare Noua" url="faces/orders/new.xhtml" />
+		<p:menuitem value="Reagenti Laborator" url="faces/lab/list.xhtml" />
+		<p:menuitem value="Persoane" url="faces/persons/list.xhtml" />
+		<p:menuitem value="Producatori" url="faces/producers/list.xhtml" />
+	</p:breadCrumb> -->
+
+</ui:composition>
+
+
