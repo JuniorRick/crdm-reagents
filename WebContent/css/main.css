@@ -1,4 +1,4 @@
-body {
+body,html {
 	background: #eee;
 	font-family: 'Acme', sans-serif;
 	font-size: 20px; margin : 0;
@@ -6,19 +6,31 @@ body {
 	margin: 0;
 }
 
+.page-header {
+	padding-top: 10px;
+	padding-right: 20px;
+	font-size: 25px;
+}
 .toolbar {
-	background: #BFE3C2;
+	background: #888a85;
 	height: 80px;
 	display: table;
 	width: 100%;
 }
+
+
 .toolbar-content {
 	padding-left: 5%;
 	display: table-cell;
 	vertical-align: middle;
 }
 
+.toolbar-search-input {
+	margin:1px 20px 1px 1px;
+}
+
 a {
+	color: #fff;
 	text-decoration: none;
 }
 

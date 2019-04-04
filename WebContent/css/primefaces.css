@@ -1,0 +1,8 @@
+
+[role="columnheader"]:first-child {
+	width: 200px;
+}
+
+[role="columnheader"]:last-child {
+	width: 300px;
+}
