@@ -1,4 +1,4 @@
-package crdm.deposit.blanks;
+package crdm.deposit.reagents;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

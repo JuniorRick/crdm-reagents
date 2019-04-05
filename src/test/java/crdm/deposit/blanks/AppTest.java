@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import crdm.deposit.blanks.entity.Producer;
+import crdm.deposit.reagents.entity.Producer;
 
 /**
  * Unit test for simple App.

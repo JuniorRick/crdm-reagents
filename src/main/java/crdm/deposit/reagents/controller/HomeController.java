@@ -1,4 +1,4 @@
-package crdm.deposit.blanks.controller;
+package crdm.deposit.reagents.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

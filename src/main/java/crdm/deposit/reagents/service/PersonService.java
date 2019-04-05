@@ -1,4 +1,4 @@
-package crdm.deposit.blanks.service;
+package crdm.deposit.reagents.service;
 
 import java.util.List;
 
@@ -7,18 +7,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import crdm.deposit.blanks.entity.Producer;
+import crdm.deposit.reagents.entity.Person;
 
 
-@ManagedBean(name="producerService")
-public class ProducerService {
+@ManagedBean(name="personService")
+public class PersonService {
 
     protected static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JpaReagents");
     protected EntityManager em = emf.createEntityManager();
 	
 	
-	public List<Producer> all() {
-		return em.createQuery("SELECT p FROM Producer p", Producer.class)
+	public List<Person> all() {
+		return em.createQuery("SELECT p FROM Person p", Person.class)
 				.getResultList();
 	}
 }

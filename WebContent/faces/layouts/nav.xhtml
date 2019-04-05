@@ -9,8 +9,9 @@
 		<div class="toolbar-content">
 			<a href="#{request.contextPath}/" class="toolbar-item">Acasa</a> 
 			<a href="#{request.contextPath}/faces/reagents/list.xhtml" class="toolbar-item">Reagenti</a> 
+			<a href="#{request.contextPath}/faces/people/list.xhtml" class="toolbar-item">Persoane</a> 
 			<a href="#{request.contextPath}/faces/producers/list.xhtml" class="toolbar-item">Producator</a> 
-
+			
 
 			<p:inputText placeholder="Cautare" class="is-pulled-right toolbar-search-input" />
 
@@ -18,15 +19,33 @@
 
 	</div>
 
-	<!-- 	<p:breadCrumb>
-		<p:menuitem value="Acasa" url="/" />
-		<p:menuitem value="Reagenti" url="faces/reagents/list.xhtml" />
-		<p:menuitem value="Eliberare Noua" url="faces/orders/new.xhtml" />
-		<p:menuitem value="Reagenti Laborator" url="faces/lab/list.xhtml" />
-		<p:menuitem value="Persoane" url="faces/persons/list.xhtml" />
-		<p:menuitem value="Producatori" url="faces/producers/list.xhtml" />
-	</p:breadCrumb> -->
+<!-- 		<script>
+		$(window).scroll( function () {
+			if($(this).scrollTop() > 50) {
+				$('.toolbar-search-input').css('position', 'fixed')
+					.css('bottom', '50px').css('right', '50px')
+					.css('z-index', '9999')
+			}
+			else {
+				$('.toolbar-search-input').css('position', 'relative')
+				.css('margin', '1px 20px 1px 1px')
+				.css('bottom', '0'). css('right', '0');
+			}
+		})
+	</script> -->
+	
+	 <script>
+		$(window).scroll( function () {
+			if($(this).scrollTop() > 50) {
+				$('.toolbar').css('height', '50px');
+			}
+			else {
+				$('.toolbar').css('height', '80px');
 
+			}
+		})
+	</script>
+	
 </ui:composition>
 
 

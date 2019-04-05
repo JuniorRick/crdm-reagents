@@ -1,8 +1,26 @@
 
-[role="columnheader"]:first-child {
-	width: 200px;
+[id='j_idt11:j_idt12'] {
+	width: 60px !important;
 }
 
-[role="columnheader"]:last-child {
+[id='j_idt11:reagent-name'] {
 	width: 300px;
+}
+
+[id='j_idt11:reagent-quantity'] {
+	width: 100px;
+}
+
+[id='j_idt11:reagent-barcode'] {
+	width: 100px;
+}
+
+[id='j_idt11:reagent-receiveDate'] {
+	width: 120px;
+}
+
+
+[role="columnheader"]:last-child {
+	width: 290px;
+	white-space: nowrap;
 }

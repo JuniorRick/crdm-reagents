@@ -7,6 +7,7 @@ body,html {
 }
 
 .page-header {
+	margin-top: 100px;
 	padding-top: 10px;
 	padding-right: 20px;
 	font-size: 25px;
@@ -16,8 +17,17 @@ body,html {
 	height: 80px;
 	display: table;
 	width: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 9999;
+	transition: height 0.5s;
 }
 
+.btn-delete {
+	background-color: #a40000 !important;
+	color: #eee !important;
+}
 
 .toolbar-content {
 	padding-left: 5%;
@@ -37,5 +47,4 @@ a {
 .toolbar-item {
 	padding-left: 1em;
 	padding-right: 1em;
-	
 }

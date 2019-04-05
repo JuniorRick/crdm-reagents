@@ -1,4 +1,4 @@
-package crdm.deposit.blanks.controller;
+package crdm.deposit.reagents.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import crdm.deposit.blanks.entity.Producer;
-import crdm.deposit.blanks.service.ProducerService;
+import crdm.deposit.reagents.entity.Producer;
+import crdm.deposit.reagents.service.ProducerService;
 
 @ManagedBean
 @RequestScoped

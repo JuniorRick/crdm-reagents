@@ -4,7 +4,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-	<title>Producatori</title>
+	<title>Persoane</title>
 </h:head>
 <ui:include src="/faces/layouts/header.xhtml" />
 
@@ -13,23 +13,22 @@
 	<ui:include src="/faces/layouts/nav.xhtml" />
 
 	<div class="is-clearfix page-header">
-		<h1 class="is-pulled-right ">Producatori</h1>
+		<h1 class="is-pulled-right ">Persoane</h1>
 	</div>
 
 	<div class="section">
 
-
 		<div class="container">
 			<div class="columns">
 				<div class="column">
-					<p:dataTable var="producer" rowIndexVar="index"
-						value="#{producerController.producers}">
+					<p:dataTable var="person" rowIndexVar="index"
+						value="#{personController.people}">
 						<p:column headerText="Nr.">
 							<h:outputText value="#{index + 1}" />
 						</p:column>
 
 						<p:column headerText="Denumire">
-							<h:outputText value="#{producer.name}" />
+							<h:outputText value="#{person.name}" />
 						</p:column>
 
 						<p:column headerText="Actiuni">
@@ -37,11 +36,11 @@
 	
 								<p:button value="Editare"
 									icon="fa fa-edit" style="margin-right:20px;">
-									<f:param name="edit" value="${producer.id}" />
+									<f:param name="edit" value="${person.id}" />
 								</p:button>
 								<p:button value="Stergere" class="btn-delete"
 									icon="fa fa-trash" style="margin-right:20px;">
-									<f:param name="delete" value="${producer.id}" />
+									<f:param name="delete" value="${person.id}" />
 								</p:button>
 								
 							</h:form>

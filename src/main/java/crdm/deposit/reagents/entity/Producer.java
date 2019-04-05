@@ -1,4 +1,4 @@
-package crdm.deposit.blanks.entity;
+package crdm.deposit.reagents.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -16,7 +16,72 @@
 		<h1 class="is-pulled-right ">Reagenti</h1>
 	</div>
 
+	<div class="section">
 
+
+		<div class="container is-fluid">
+			<div class="columns">
+				<div class="column">
+					<p:dataTable var="reagent" rowIndexVar="index"
+						value="#{reagentController.reagents}">
+						<p:column headerText="Nr.">
+							<h:outputText value="#{index + 1}" />
+						</p:column>
+
+						<p:column headerText="Producator">
+							<h:outputText value="#{reagent.producer.name}" />
+						</p:column>
+
+						<p:column headerText="Data primirii" id="reagent-receiveDate">
+							<h:outputText value="#{reagent.receiveDate}" />
+						</p:column>
+
+						<p:column headerText="Barcod" id="reagent-barcode">
+							<h:outputText value="#{reagent.barcode}" />
+						</p:column>
+
+						<p:column headerText="Denumire" id="reagent-name">
+							<h:outputText value="#{reagent.name}" />
+						</p:column>
+
+						<p:column headerText="Lot">
+							<h:outputText value="#{reagent.lot}" />
+						</p:column>
+
+						<p:column headerText="Ref">
+							<h:outputText value="#{reagent.ref}" />
+						</p:column>
+
+						<p:column headerText="Cantitate" id="reagent-quantity">
+							<h:outputText value="#{reagent.quantity}" />
+						</p:column>
+
+						<p:column headerText="Data Expirarii">
+							<h:outputText value="#{reagent.expireDate}" />
+						</p:column>
+
+
+						<p:column headerText="Actiuni">
+							<h:form>
+
+								<p:button value="Editare" icon="fa fa-edit"
+									style="margin-right:20px;">
+									<f:param name="edit" value="${reagent.id}" />
+								</p:button>
+								<p:button value="Stergere" class="btn-delete" icon="fa fa-trash"
+									style="margin-right:20px;">
+									<f:param name="delete" value="${reagent.id}" />
+								</p:button>
+
+							</h:form>
+						</p:column>
+
+					</p:dataTable>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 </h:body>
 </html>
