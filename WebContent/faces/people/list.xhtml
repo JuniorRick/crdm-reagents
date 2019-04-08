@@ -12,38 +12,50 @@
 	<!-- navigation bar -->
 	<ui:include src="/faces/layouts/nav.xhtml" />
 
+	<!-- Page header -->
 	<div class="is-clearfix page-header">
 		<h1 class="is-pulled-right ">Persoane</h1>
 	</div>
+	<!-- End of page header -->
 
-	<p:dialog widgetVar="dlg" modal="true" width="800">
+
+	<!-- Add Edit modal -->
+	<p:dialog widgetVar="dlg" modal="true" width="800px" >
 		<h:form id="dlgForm">
-			<p:panel id="display">
-				<p:outputLabel for="name" value="Nume " />
+			<p:panelGrid id="display" columns="2" layout="grid"
+				styleClass="ui-panelgrid-blank ui-fluid">
+
+				<h:outputLabel for="name" value="Nume" />
 				<p:inputText id="name" value="#{personController.person.name}" />
+
+
 				<p:inputText value="#{personController.person.id}" type="hidden" />
-				<br />
-				<div class="is-clearfix">
-					<p:commandButton value="Actualizare" class="is-pulled-right btn-confirm" update=":table"
-						action="#{personController.update}" oncomplete="PF('dlg').hide();" />
-					<p:commandButton value="Anulare" class="is-pulled-right"
-						onclick="PF('dlg').hide();" />
-				</div>
-			</p:panel>
+
+
+			</p:panelGrid>
+			
+			<div class="is-clearfix">
+				<p:commandButton value="Anulare" class="is-pulled-right"
+					onclick="PF('dlg').hide();" />
+				<p:commandButton value="Actualizare"
+					class="is-pulled-right btn-confirm" update=":table"
+					action="#{personController.update}" oncomplete="PF('dlg').hide();" />
+			</div>
 		</h:form>
 	</p:dialog>
-
-
+	<!-- End of Add Edit modal -->
+	
+	
+	
 	<div class="section">
 
 		<div class="container">
 			<div class="columns">
+			
 				<div class="column">
-
 					<p:dataTable var="person" rowIndexVar="index" id="table"
 						value="#{personController.people}">
-						
-						
+
 						<p:column headerText="Nr.">
 							<h:outputText value="#{index + 1}" />
 						</p:column>
@@ -55,15 +67,14 @@
 						<p:column headerText="Actiuni">
 
 							<h:form>
-
-
 								<p:commandButton value="Editare" onclick="PF('dlg').show();"
 									resetValues="true" style="margin-right:20px;"
 									update="dlgForm:display" icon="fa fa-edit"
 									action="#{personController.setPerson(person)}" />
 
-								<p:commandButton value="Stergere" class="btn-delete" icon="fa fa-trash"
-									action="#{personController.delete(person)}" update=":table">
+								<p:commandButton value="Stergere" class="btn-delete"
+									icon="fa fa-trash" action="#{personController.delete(person)}"
+									update=":table">
 									<p:confirm header="Confirmare" message="Sterge ${person.name}?" />
 								</p:commandButton>
 
@@ -78,6 +89,7 @@
 			</div>
 		</div>
 	</div>
+
 
 	<ui:include src="/faces/layouts/footer.xhtml" />
 </h:body>
