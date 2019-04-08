@@ -2,9 +2,12 @@ package crdm.deposit.reagents.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import crdm.deposit.reagents.entity.Person;
 import crdm.deposit.reagents.service.PersonService;
@@ -14,23 +17,37 @@ import crdm.deposit.reagents.service.PersonService;
 public class PersonController {
 
 	private List<Person> people;
-	
-	@ManagedProperty(value="#{personService}")
+	private Person person = new Person();
+
+	@ManagedProperty(value = "#{personService}")
 	private PersonService personService;
 	
-	
-	public List<Person> getPeople() {
+	@PostConstruct
+	private void load() {
 		people = personService.all();
+	}
+
+	public List<Person> getPeople() {
 		return people;
 	}
 
-	public void edit(Integer id) {
-		
+	public void update() {
+		personService.update(this.person);
+		people = personService.all();
 	}
-	public void delete(Integer id) {
-		
+
+	public Person find(Integer id) {
+		return personService.find(id);
 	}
-	
+
+	public void delete(Person person) {
+
+		personService.delete(person);
+		people = personService.all();
+
+		addMessage("Stergere", "Inregistrarea a fost stearsa");
+	}
+
 	public PersonService getPersonService() {
 		return personService;
 	}
@@ -38,9 +55,18 @@ public class PersonController {
 	public void setPersonService(PersonService personService) {
 		this.personService = personService;
 	}
-	
-	public Person getPerson(Integer id) {
-		return null;
+
+	public Person getPerson() {
+		return this.person;
 	}
-	
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public void addMessage(String summary, String detail) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
 }

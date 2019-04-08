@@ -16,13 +16,51 @@
 		<h1 class="is-pulled-right ">Reagenti</h1>
 	</div>
 
+<!-- TODO organize select -->
+	<p:dialog widgetVar="dlg" modal="true" width="800"
+		position="center center">
+		<h:form id="dlgForm">
+			<p:panel id="display">
+				<p:inputText value="#{reagentController.reagent.id}" type="hidden" />
+
+				<p:outputLabel for="name" value="Nume " />
+				<p:inputText id="name" value="#{reagentController.reagent.name}" />
+				<br />
+				
+				<p:outputLabel for="producer" value="Producator" />
+				<p:selectOneMenu id="producer" value="#{reagentController.producer}"
+					panelStyle="width:180px" effect="fade"
+					var="p" style="width:160px" filter="true"
+					filterMatchMode="startsWith">
+					<f:selectItems value="#{producerController.producers}" var="producer"
+						itemLabel="#{producer.name}" itemValue="#{producer}" />
+
+					<p:column>
+						<h:outputText value="#{p.name}" />
+					</p:column>
+				</p:selectOneMenu>
+
+				<br />
+				<div class="is-clearfix">
+					<p:commandButton value="Actualizare"
+						class="is-pulled-right btn-confirm" update=":table"
+						action="#{reagentController.update}"
+						oncomplete="PF('dlg').hide();" />
+					<p:commandButton value="Anulare" class="is-pulled-right"
+						onclick="PF('dlg').hide();" />
+				</div>
+			</p:panel>
+		</h:form>
+	</p:dialog>
+
+
 	<div class="section">
 
 
 		<div class="container is-fluid">
 			<div class="columns">
 				<div class="column">
-					<p:dataTable var="reagent" rowIndexVar="index"
+					<p:dataTable var="reagent" rowIndexVar="index" id="table"
 						value="#{reagentController.reagents}">
 						<p:column headerText="Nr.">
 							<h:outputText value="#{index + 1}" />
@@ -64,14 +102,18 @@
 						<p:column headerText="Actiuni">
 							<h:form>
 
-								<p:button value="Editare" icon="fa fa-edit"
-									style="margin-right:20px;">
-									<f:param name="edit" value="${reagent.id}" />
-								</p:button>
-								<p:button value="Stergere" class="btn-delete" icon="fa fa-trash"
-									style="margin-right:20px;">
-									<f:param name="delete" value="${reagent.id}" />
-								</p:button>
+								<p:commandButton value="Editare" onclick="PF('dlg').show();"
+									resetValues="true" style="margin-right:20px;"
+									update="dlgForm:display" icon="fa fa-edit"
+									action="#{reagentController.setReagent(reagent)}" />
+
+								<p:commandButton value="Stergere" class="btn-delete"
+									icon="fa fa-trash"
+									action="#{reagentController.delete(reagent)}" update=":table">
+									<p:confirm header="Confirmare"
+										message="Sterge ${reagent.name}?" />
+								</p:commandButton>
+
 
 							</h:form>
 						</p:column>
@@ -83,5 +125,6 @@
 		</div>
 	</div>
 
+	<ui:include src="/faces/layouts/footer.xhtml" />
 </h:body>
 </html>

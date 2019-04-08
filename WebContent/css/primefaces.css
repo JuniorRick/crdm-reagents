@@ -1,9 +1,9 @@
 
-[id='j_idt11:j_idt12'] {
+[role="columnheader"]:first-child {
 	width: 60px !important;
 }
 
-[id='j_idt11:reagent-name'] {
+[id$=':reagent-name'] {
 	width: 300px;
 }
 
@@ -23,4 +23,10 @@
 [role="columnheader"]:last-child {
 	width: 290px;
 	white-space: nowrap;
+}
+
+
+.fa-check, .fa-window-close {
+	width: 30px;
+	height: 30px;
 }

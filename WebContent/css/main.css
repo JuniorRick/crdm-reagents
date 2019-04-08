@@ -29,6 +29,11 @@ body,html {
 	color: #eee !important;
 }
 
+.btn-confirm {
+	background-color: #729fcf !important;
+	color: #000 !important;
+}
+
 .toolbar-content {
 	padding-left: 5%;
 	display: table-cell;

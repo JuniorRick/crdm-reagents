@@ -16,13 +16,34 @@
 		<h1 class="is-pulled-right ">Persoane</h1>
 	</div>
 
+	<p:dialog widgetVar="dlg" modal="true" width="800">
+		<h:form id="dlgForm">
+			<p:panel id="display">
+				<p:outputLabel for="name" value="Nume " />
+				<p:inputText id="name" value="#{personController.person.name}" />
+				<p:inputText value="#{personController.person.id}" type="hidden" />
+				<br />
+				<div class="is-clearfix">
+					<p:commandButton value="Actualizare" class="is-pulled-right btn-confirm" update=":table"
+						action="#{personController.update}" oncomplete="PF('dlg').hide();" />
+					<p:commandButton value="Anulare" class="is-pulled-right"
+						onclick="PF('dlg').hide();" />
+				</div>
+			</p:panel>
+		</h:form>
+	</p:dialog>
+
+
 	<div class="section">
 
 		<div class="container">
 			<div class="columns">
 				<div class="column">
-					<p:dataTable var="person" rowIndexVar="index"
+
+					<p:dataTable var="person" rowIndexVar="index" id="table"
 						value="#{personController.people}">
+						
+						
 						<p:column headerText="Nr.">
 							<h:outputText value="#{index + 1}" />
 						</p:column>
@@ -32,26 +53,32 @@
 						</p:column>
 
 						<p:column headerText="Actiuni">
+
 							<h:form>
-	
-								<p:button value="Editare"
-									icon="fa fa-edit" style="margin-right:20px;">
-									<f:param name="edit" value="${person.id}" />
-								</p:button>
-								<p:button value="Stergere" class="btn-delete"
-									icon="fa fa-trash" style="margin-right:20px;">
-									<f:param name="delete" value="${person.id}" />
-								</p:button>
-								
+
+
+								<p:commandButton value="Editare" onclick="PF('dlg').show();"
+									resetValues="true" style="margin-right:20px;"
+									update="dlgForm:display" icon="fa fa-edit"
+									action="#{personController.setPerson(person)}" />
+
+								<p:commandButton value="Stergere" class="btn-delete" icon="fa fa-trash"
+									action="#{personController.delete(person)}" update=":table">
+									<p:confirm header="Confirmare" message="Sterge ${person.name}?" />
+								</p:commandButton>
+
+
 							</h:form>
 						</p:column>
 
 					</p:dataTable>
+
 
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<ui:include src="/faces/layouts/footer.xhtml" />
 </h:body>
 </html>

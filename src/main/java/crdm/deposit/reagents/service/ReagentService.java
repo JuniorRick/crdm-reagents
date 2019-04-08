@@ -20,4 +20,18 @@ public class ReagentService {
 			return em.createQuery("SELECT r FROM Reagent r", Reagent.class)
 					.getResultList();
 		}
+		
+		public void update(Reagent reagent) {
+			em.getTransaction().begin();
+			em.merge(reagent);
+			em.getTransaction().commit();
+		}
+		
+		public void delete(Reagent reagent) {
+			em.getTransaction().begin();
+			em.remove(reagent);		
+			em.getTransaction().commit();
+			
+		}
+		
 }
